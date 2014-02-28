@@ -71,7 +71,7 @@ module.exports = function(grunt) {
                     livereload: '<%= connect.options.livereload %>'
                 },
                 files: [
-                     '**/*.coffee',
+                    '**/*.js',
                     '<%= watch.json.files %>',
                     base + '/css/**/*.css',
                     '**/*.html'
