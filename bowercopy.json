@@ -6,6 +6,9 @@
         },
         "files": {
             "three.js": "threejs/build/three.js",
+            "physi.js": "physijs/physi.js",
+            "physijs_worker.js": "physijs/physijs_worker.js",
+            "ammo.js": "ammo.js/builds/ammo.fast.js",
             "require.js": "requirejs/require.js"
         }
     }

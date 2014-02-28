@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "dependencies": {
     "threejs": "",
+    "physijs": "",
     "requirejs": "~2.1.9"
   }
 }

@@ -1,13 +1,9 @@
 (function() {
   require({
-    baseUrl: 'js',
-    shim: {
-      'vendor/three': {
-        exports: 'THREE'
-      }
-    }
-  }, ['vendor/three', 'scene'], function(THREE, Scene) {
+    baseUrl: 'js'
+  }, ['scene'], function(Scene) {
     var s;
+    Physijs.scripts.worker = 'js/vendor/physijs_worker.js';
     s = new Scene(THREE);
     return s.animate();
   });

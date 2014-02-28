@@ -1,17 +1,13 @@
 define ->
   class Cube
-    constructor: () ->
-      Cube.geometry ||= new THREE.CubeGeometry 100, 100, 100
+    constructor: (@mesh = null) ->
+      geometry = new THREE.CubeGeometry 100, 100, 100
 
-      @material = new THREE.MeshPhongMaterial
-        color: Math.round(Math.random() * 0xffffff)
-        ambient: Math.round(Math.random() * 0xffffff)
-        specular: Math.round(Math.random() * 0xffffff)
-        shading: THREE.NoShading
+      material = new THREE.MeshPhongMaterial(color: 0xffffff, shading: THREE.FlatShading, wireframe: false)
 
-      @mesh = new THREE.Mesh Cube.geometry, @material
+      phys_material = new Physijs.createMaterial(material, 0.0, 0.8)
 
-
+      @mesh = new Physijs.BoxMesh geometry, phys_material, 100
 
       @velocity =
         x: 0.1*Math.random() - 0.05

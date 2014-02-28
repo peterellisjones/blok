@@ -2,15 +2,17 @@
   define(function() {
     var Cube;
     return Cube = (function() {
-      function Cube() {
-        Cube.geometry || (Cube.geometry = new THREE.CubeGeometry(100, 100, 100));
-        this.material = new THREE.MeshPhongMaterial({
-          color: Math.round(Math.random() * 0xffffff),
-          ambient: Math.round(Math.random() * 0xffffff),
-          specular: Math.round(Math.random() * 0xffffff),
-          shading: THREE.NoShading
+      function Cube(mesh) {
+        var geometry, material, phys_material;
+        this.mesh = mesh != null ? mesh : null;
+        geometry = new THREE.CubeGeometry(100, 100, 100);
+        material = new THREE.MeshPhongMaterial({
+          color: 0xffffff,
+          shading: THREE.FlatShading,
+          wireframe: false
         });
-        this.mesh = new THREE.Mesh(Cube.geometry, this.material);
+        phys_material = new Physijs.createMaterial(material, 0.0, 0.8);
+        this.mesh = new Physijs.BoxMesh(geometry, phys_material, 100);
         this.velocity = {
           x: 0.1 * Math.random() - 0.05,
           y: 0.1 * Math.random() - 0.05,

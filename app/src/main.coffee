@@ -1,10 +1,7 @@
 require
-  baseUrl: 'js',
-  shim:
-    'vendor/three':
-      exports: 'THREE',
-  ['vendor/three', 'scene'],
-  (THREE, Scene) ->
+  baseUrl: 'js'
+  ['scene'],
+  (Scene) ->
+    Physijs.scripts.worker = 'js/vendor/physijs_worker.js'
     s = new Scene(THREE)
     s.animate()
-

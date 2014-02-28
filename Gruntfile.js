@@ -51,7 +51,7 @@ module.exports = function(grunt) {
                 files: [
                     '<%= jshint.all %>'
                 ],
-                tasks: ['jshint']
+                tasks: []
             },
             coffee: {
               files: [
@@ -106,5 +106,5 @@ module.exports = function(grunt) {
         ]);
     });
 
-    grunt.registerTask('default', ['newer:coffeelint', 'newer:jsonlint', 'newer:jshint', 'serve']);
+    grunt.registerTask('default', ['newer:coffeelint', 'newer:jsonlint', 'serve']);
 };
