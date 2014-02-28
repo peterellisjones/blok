@@ -29,6 +29,10 @@
         this.dirLight.position.set(1, 1, 1);
         this.dirLight.shadowCameraVisible = true;
         this.scene.add(this.dirLight);
+        this.dirLight = new THREE.DirectionalLight(0xff0000, 1.0);
+        this.dirLight.position.set(0, 0, 1);
+        this.dirLight.shadowCameraVisible = true;
+        this.scene.add(this.dirLight);
         this.renderer = new THREE.CanvasRenderer();
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(this.renderer.domElement);

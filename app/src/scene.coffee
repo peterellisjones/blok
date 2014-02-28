@@ -4,11 +4,11 @@ define ['cube'], (Cube) ->
     constructor: () ->
 
       @camera = new THREE.PerspectiveCamera(
-        75,
-        window.innerWidth / window.innerHeight,
-        1,
-        10000
+        75, window.innerWidth / window.innerHeight, 1, 10000
       )
+
+
+
       @camera.position.z = 1000
       @camera.position.y = 0
       @camera.lookAt new THREE.Vector3(0, 0, 0)
@@ -32,6 +32,11 @@ define ['cube'], (Cube) ->
       # add directional light
       @dirLight = new THREE.DirectionalLight(0xffffff, 1.0)
       @dirLight.position.set 1, 1, 1
+      @dirLight.shadowCameraVisible = true
+      @scene.add @dirLight
+
+      @dirLight = new THREE.DirectionalLight(0xff0000, 1.0)
+      @dirLight.position.set 0, 0, 1
       @dirLight.shadowCameraVisible = true
       @scene.add @dirLight
 
